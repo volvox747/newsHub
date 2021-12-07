@@ -12,17 +12,53 @@
     <!--% Buisness-Cards  -->
     <div class="row">
       <% for( let i = 0; i < 4; i++ ) { %>
-      <%- include('partials/buisnessCards') %>
+      <div class="col-md-3 col-sm-6 mb-3 top-stories">
+        <div class="card" style="width: 18rem;">
+          <img src="<%= buisness[i].urlToImage %> " alt="" class="card-img-top card-img tech-img" />
+          <div class="card-title m-3">
+            <h5><%=buisness[i].title%></h5>
+          </div>
+          <a href="<%= buisness[i].url %>" class="stretched-link">
+            <p class="card-text ms-3 my-3">
+              <small class="text-muted"><%= buisness[i].source.name %> </small>
+            </p>
+          </a>
+        </div>
+      </div>
       <% } %>
     </div>
     <div class="row">
       <% for( let i = 4; i < 8; i++ ) { %>
-      <%- include('partials/buisnessCards') %>
+      <div class="col-md-3 col-sm-6 mb-3 top-stories">
+        <div class="card" style="width: 18rem;">
+          <img src="<%= buisness[i].urlToImage %> " alt="" class="card-img-top card-img tech-img" />
+          <div class="card-title m-3">
+            <h5><%=buisness[i].title%></h5>
+          </div>
+          <a href="<%= buisness[i].url %>" class="stretched-link">
+            <p class="card-text ms-3 my-3">
+              <small class="text-muted"><%= buisness[i].source.name %> </small>
+            </p>
+          </a>
+        </div>
+      </div>
       <% } %>
     </div>
     <div class="row">
       <% for( let i = 8; i < 12; i++ ) { %>
-      <%- include('partials/buisnessCards') %>
+      <div class="col-md-3 col-sm-6 mb-3 top-stories">
+        <div class="card" style="width: 18rem;">
+          <img src="<%= buisness[i].urlToImage %> " alt="" class="card-img-top card-img tech-img" />
+          <div class="card-title m-3">
+            <h5><%=buisness[i].title%></h5>
+          </div>
+          <a href="<%= buisness[i].url %>" class="stretched-link">
+            <p class="card-text ms-3 my-3">
+              <small class="text-muted"><%= buisness[i].source.name %> </small>
+            </p>
+          </a>
+        </div>
+      </div>
       <% } %>
     </div>
   </div>
@@ -63,5 +99,3 @@
 <!--% Footer  -->
 
 <%- include('partials/footer') %>
-
-\

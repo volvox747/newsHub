@@ -14,17 +14,53 @@
     <!--% Entertainment-Cards  -->
     <div class="row">
       <% for( let i = 0; i < 4; i++ ) { %>
-      <%- include('partials/entertainmentCards',{i:i}) %>
+      <div class="col-md-3 col-sm-6 mb-3 top-stories">
+        <div class="card" style="width: 18rem">
+          <img src="<%= entertainment[i].urlToImage %> " alt="" class="card-img-top card-img tech-img" />
+          <div class="card-title m-3">
+            <h5><%=entertainment[i].title%></h5>
+          </div>
+          <a href="<%= entertainment[i].url %>" class="stretched-link">
+            <p class="card-text ms-3 my-3">
+              <small class="text-muted"><%= entertainment[i].source.name %> </small>
+            </p>
+          </a>
+        </div>
+      </div>
       <% } %>
     </div>
     <div class="row">
       <% for( let i = 4; i < 8; i++ ) { %>
-      <%= include('partials/entertainmentCards',{i:i}) %>
+      <div class="col-md-3 col-sm-6 mb-3 top-stories">
+        <div class="card" style="width: 18rem">
+          <img src="<%= entertainment[i].urlToImage %> " alt="" class="card-img-top card-img tech-img" />
+          <div class="card-title m-3">
+            <h5><%=entertainment[i].title%></h5>
+          </div>
+          <a href="<%= entertainment[i].url %>" class="stretched-link">
+            <p class="card-text ms-3 my-3">
+              <small class="text-muted"><%= entertainment[i].source.name %> </small>
+            </p>
+          </a>
+        </div>
+      </div>
       <% } %>
     </div>
     <div class="row">
       <% for( let i = 8; i < 12; i++ ) { %>
-      <%= include('partials/entertainmentCards',{i:i}) %>
+      <div class="col-md-3 col-sm-6 mb-3 top-stories">
+        <div class="card" style="width: 18rem">
+          <img src="<%= entertainment[i].urlToImage %> " alt="" class="card-img-top card-img tech-img" />
+          <div class="card-title m-3">
+            <h5><%=entertainment[i].title%></h5>
+          </div>
+          <a href="<%= entertainment[i].url %>" class="stretched-link">
+            <p class="card-text ms-3 my-3">
+              <small class="text-muted"><%= entertainment[i].source.name %> </small>
+            </p>
+          </a>
+        </div>
+      </div>
       <% } %>
     </div>
   </div>
@@ -39,7 +75,23 @@
       <div class="News-Articles">
         <% more_entertainment.forEach(ent => { %>
         <% if (ent.urlToImage!=null) { %>
-        <%- include('partials/moreNews',{ent}) %> 
+        <div class="card mb-3" style="max-width: 940px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="<%= ent.urlToImage %>" class="img-fluid rounded-start" alt="">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"><%= ent.title %> </h5>
+                <a href="<%= ent.url %>" class="stretched-link">
+                  <p class="card-text">
+                    <small class="text-muted"><%= ent.source.name%></small>
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div> 
         <%}%>
         <% }) %>
       </div>

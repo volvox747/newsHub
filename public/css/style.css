@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #333;
+}
+
+.headlines{
+    padding: 3rem 0rem;
+}
+
+.headlines .container #carouselExampleCaptions .carousel-inner .carousel-item img{
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+}
+
+.headlines .container #carouselExampleCaptions .carousel-inner .carousel-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    background-color:rgba(0, 0, 0, 0.6)
+}
+
+.common .container .row .tech-col .card .card-title{
+    height: 7.5rem;
+    overflow: hidden;
+    /* max-height: 8rem; */
+    -webkit-box-orient: vertical;
+    /* display: block; */
+    display: -webkit-box;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 4;
+}
+
+.tech-col{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.common .container .row .tech-col .card .tech-img {
+    height: 10rem;
+}
+
+.common .container .row .tech-col .card .card-body .card-text{
+    
+        overflow: hidden;
+        max-height: 8rem;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 3;
+    
+}
+
+.common{
+    margin-bottom: 4rem;
+}
+
+
+.view{
+    background-color: rgb(0, 0, 0);
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    color: white;
+}
+
+
+.view-more {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+
+.latest{
+        height: 55px;
+        -webkit-box-orient: vertical;
+        /* display: block; */
+        display: -webkit-box;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 4;
+}
+
+/* .headlines{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */

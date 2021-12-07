@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <title>NewsHub</title>
+</head>
+
+<body>
+
+  <!--` HEADER -->
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">NewsHub</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+          aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <li class="nav-item">
+              <a class="nav-link" href="/show/technology">Technology</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/show/technology">Buisness</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/show/technology">Sports</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/show/technology">Entertainment</a>
+            </li>
+            <!-- <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Link
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li> -->
+          </ul>
+          <form class="d-flex" action="/show" method="POST">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+
+  <!--! HEADLINES -->
+
+  <section class="headlines">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-9">
+          <h5 class="display-6 text-light mb-4">Today Headlines</h4>
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+
+
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="overlay"></div>
+                  <img src="<%= headline[0].urlToImage %> " class="d-block w-100" alt="arc.title">
+                  <div class="carousel-caption d-md-block">
+                    <a href="<%= headline[0].url %> " class="text-light" style="text-decoration: none;">
+                      <h5 class="display-6"><%= headline[0].title %> </h5>
+                    </a>
+                    <p><%= headline[0].description %> </p>
+                  </div>
+                </div>
+
+                <% headline.forEach((arc)=>{ %>
+                <% if (arc.source.id!==headline[0].source.id) { %>
+                <div class="carousel-item">
+                  <div class="overlay"></div>
+                  <img src="<%= arc.urlToImage %> " class="d-block w-100" alt="arc.title">
+                  <div class="carousel-caption d-md-block">
+                    <a href="<%= arc.url %> " class="text-light" style="text-decoration: none;">
+                      <h6 class="display-6"><%= arc.title %> </h6>
+                    </a>
+                    <p><%= arc.description %> </p>
+                  </div>
+                </div>
+                <% } %>
+                <% }) %>
+              </div>
+
+
+
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+        </div>
+
+        <!--& LATEST -->
+
+        <div class="col-lg-3 pt-3">
+          <h4 class="display-6 text-light mb-4">Latest News</h4>
+          <div class="row">
+            <% for(i=0;i<2;i++) { %>
+            <div class="col-lg-12 col-sm-6">
+              <div class="card mb-2" style="width: 18rem;">
+                <div class="card-body">
+                  <h6 class="card-subtitle mb-2 latest"><%= latest[i].title %> </h6>
+                  <a href="<%= latest[i].url %> " class="card-link stretched-link"><%=latest[i].source.name %></a>
+                </div>
+              </div>
+            </div>
+            <% } %>
+
+            <% for(i=2;i<4;i++) { %>
+            <div class="col-lg-12 col-sm-6">
+              <div class="card mb-2" style="width: 18rem;">
+                <div class="card-body">
+                  <h6 class="card-subtitle mb-2 latest"><%= latest[i].title %> </h6>
+                  <a href="<%= latest[i].url %> " class="card-link stretched-link"><%=latest[i].source.name %></a>
+                </div>
+              </div>
+            </div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!--* TECHNOLOGY -->
+
+
+  <section class="technology common">
+    <div class="container">
+      <h4 class="display-6 text-light mb-4">Technology</h4>
+      <div class="row">
+        <% for( let i = 0; i < 4; i++ ) { %>
+        <div class="col-lg-3 col-md-6 tech-col pb-3">
+          <div class="card" style="width: 18rem;">
+            <img src="<%= technology[i].urlToImage %> " class="card-img-top tech-img" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%=technology[i].title%></h5>
+              <a href="<%= technology[i].url %> " class="stretched-link"><%= technology[i].source.name %> </a>
+            </div>
+          </div>
+        </div>
+        <%}%>
+      </div>
+      <div class="row">
+        <% for( let i = 4; i < 7; i++ ) { %>
+        <div class="col-lg-3 col-md-6 tech-col pb-3 px-2">
+          <div class="card" style="width: 18rem;">
+            <img src="<%= technology[i].urlToImage %> " class="card-img-top tech-img" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%=technology[i].title%></h5>
+              <a href="<%= technology[i].url %> " class="stretched-link"><%= technology[i].source.name %> </a>
+            </div>
+          </div>
+        </div>
+        <%}%>
+        <div class="col-lg-3 col-md-6 tech-col py-3 view-more">
+          <a href="/show/technology" class="view">
+            <i class="fas fa-5x mb-2 fa-arrow-circle-right"></i>
+            <p>View More</p>
+          </a>
+        </div>
+    </div>
+      </div>
+    </div>
+  </section>
+
+
+
+<!--^ BUISNESS  -->
+
+
+  <section class="buisness common">
+    <div class="container">
+    <h4 class="display-6 text-light mb-4">Buisness</h4>
+      <div class="row">
+        <% for( let i = 0; i < 4; i++ ) { %>
+        <div class="col-lg-3 col-md-6 tech-col pb-3">
+          <div class="card" style="width: 18rem;">
+            <img src="<%= buisness_news[i].urlToImage %> " class="card-img-top tech-img" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%=buisness_news[i].title%></h5>
+              <a href="<%= buisness_news[i].url %> " class="stretched-link"><%= buisness_news[i].source.name %> </a>
+            </div>
+          </div>
+        </div>
+        <% } %>
+      </div>
+      <div class="row">
+        <% for( let i = 4; i < 7; i++ ) { %>
+        <div class="col-lg-3 col-md-6 tech-col pb-3">
+          <div class="card" style="width: 18rem;">
+            <img src="<%= buisness_news[i].urlToImage %> " class="card-img-top tech-img" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%=buisness_news[i].title%></h5>
+              <a href="<%=buisness_news[i].url %> " class="stretched-link"><%= buisness_news[i].source.name %> </a>
+            </div>
+          </div>
+        </div>
+        <%}%>
+        <div class="col-lg-3 col-md-6 tech-col py-3 view-more">
+          <a href="/show/buisness" class="view">
+            <i class="fas fa-5x mb-2 fa-arrow-circle-right"></i>
+            <p>View More</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!--& SPORTS  -->
+
+<section class="sports common">
+    <div class="container">
+    <h4 class="display-6 text-light mb-4">Sports</h4>
+      <div class="row">
+        <% for( let i = 0; i < 4; i++ ) { %>
+        <div class="col-lg-3 col-md-6 tech-col pb-3">
+          <div class="card" style="width: 18rem;">
+            <img src="<%= sports[i].urlToImage %> " class="card-img-top tech-img" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%=sports[i].title%></h5>
+              <a href="<%= sports[i].url %> " class="stretched-link"><%= sports[i].source.name %> </a>
+            </div>
+          </div>
+        </div>
+        <%}%>
+      </div>
+      <div class="row">
+        <% for( let i = 4; i < 7; i++ ) { %>
+        <div class="col-lg-3 col-md-6 tech-col pb-3">
+          <div class="card" style="width: 18rem;">
+            <img src="<%= sports[i].urlToImage %> " class="card-img-top tech-img" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%=sports[i].title%></h5>
+              <a href="<%=sports[i].url %> " class="stretched-link"><%= sports[i].source.name %> </a>
+            </div>
+          </div>
+        </div>
+        <%}%>
+        <div class="col-lg-3 col-md-6 tech-col py-3 view-more">
+          <a href="/show/sports" class="view">
+            <i class="fas fa-5x mb-2 fa-arrow-circle-right"></i>
+            <p>View More</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+<!--todo ENTERTAINMENT  -->
+
+<section class="entertainment common">
+    <div class="container">
+    <h4 class="display-6 text-light mb-4">Entertainment</h4>
+      <div class="row">
+        <% for( let i = 0; i < 4; i++ ) { %>
+        <div class="col-lg-3 col-md-6 tech-col pb-3">
+          <div class="card" style="width: 18rem;">
+            <img src="<%= entertainment[i].urlToImage %> " class="card-img-top tech-img" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%=entertainment[i].title%></h5>
+              <a href="<%= entertainment[i].url %> " class="stretched-link"><%= entertainment[i].source.name %> </a>
+            </div>
+          </div>
+        </div>
+        <%}%>
+      </div>
+      <div class="row">
+        <% for( let i = 4; i < 7; i++ ) { %>
+        <div class="col-lg-3 col-md-6 tech-col pb-3">
+          <div class="card" style="width: 18rem;">
+            <img src="<%= entertainment[i].urlToImage %> " class="card-img-top tech-img" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%=entertainment[i].title%></h5>
+              <a href="<%=entertainment[i].url %> " class="stretched-link"><%= entertainment[i].source.name %> </a>
+            </div>
+          </div>
+        </div>
+        <%}%>
+        <div class="col-lg-3 col-md-6 tech-col py-3 view-more">
+          <a href="/show/entertainment" class="view">
+            <i class="fas fa-5x mb-2 fa-arrow-circle-right"></i>
+            <p>View More</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<footer class="p-5 text-center bg-light">
+  <div class="row">
+    <div class="col-12 pb-2">
+      <h6 class="lead">Designed and Developed By Benson Thomas</h6>
+    </div>
+
+    <div class="col-12 tech-col">
+      <!--` LinkedIN -->
+      <div>
+        <a>
+          <i class="fab fa-linkedin fa-2x mx-3"></i>
+        </a>  
+      </div>
+
+    
+    
+      <!--` GitHub  -->
+      <div>
+        <a>
+          <i class="fab fa-github-square fa-2x mx-3"></i>
+        </a>
+      </div>
+
+      <!--` Gmail  -->
+      <div>
+        <a>
+          <i class="fab fa-google fa-2x mx-3"></i>
+        </a>
+      </div>
+      
+
+    </div>
+  </div>
+</footer>
+
+
+</body>
+
+</html>

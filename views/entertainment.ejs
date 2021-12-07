@@ -1,0 +1,52 @@
+<!--% Header template  -->
+<%- include('partials/header') %>
+
+<!--% Navbar  -->
+
+<%- include('partials/navbar') %>
+
+
+
+<section class="Top-Stories my-5">
+  <div class="container">
+    <h1 class="display-5 text-light my-5">Entertainment</h1>
+    <h2 class="display-6 text-light mb-4">Top Stories</h2>
+    <!--% Entertainment-Cards  -->
+    <div class="row">
+      <% for( let i = 0; i < 4; i++ ) { %>
+      <%- include('partials/entertainmentCards',{i:i}) %>
+      <% } %>
+    </div>
+    <div class="row">
+      <% for( let i = 4; i < 8; i++ ) { %>
+      <%= include('partials/entertainmentCards',{i:i}) %>
+      <% } %>
+    </div>
+    <div class="row">
+      <% for( let i = 8; i < 12; i++ ) { %>
+      <%= include('partials/entertainmentCards',{i:i}) %>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+
+<!--& More News  -->
+
+<section class="Technology py-5">
+  <div class="container">
+    <h2 class="display-6 text-light mb-4">More News</h1>
+      <div class="News-Articles">
+        <% more_entertainment.forEach(ent => { %>
+        <% if (ent.urlToImage!=null) { %>
+        <%- include('partials/moreNews',{ent}) %> 
+        <%}%>
+        <% }) %>
+      </div>
+  </div>
+</section>
+
+<!--% Footer  -->
+
+<%- include('partials/footer') %>
+

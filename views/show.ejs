@@ -1,0 +1,44 @@
+<!--% Header template  -->
+<%- include('partials/header') %>
+
+<!--% Navbar  -->
+
+<%- include('partials/navbar') %>
+
+
+  <section class="Technology py-4">
+    <div class="container">
+      <h2 class="lead text-light mb-4">Search results based on "<%= search[0].toUpperCase()+search.slice(1) %>" </h1>
+        <div class="News-Articles">
+        <% news.forEach(ele => { %>
+          <% if (ele.urlToImage!=null) { %>
+          <div class="card mb-3" style="max-width: 940px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="<%= ele.urlToImage %>" class="img-fluid rounded-start" alt="">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title"><%= ele.title %> </h5>
+                  <a href="<%= ele.url %>" class="stretched-link">
+                    <p class="card-text">
+                      <small class="text-muted"><%= ele.source.name%></small>
+                    </p>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <%}%>
+        <% }) %>
+        </div>
+    </div>
+  </section>
+    
+
+
+ <!--% Footer  -->
+
+<%- include('partials/footer') %>
+
+
